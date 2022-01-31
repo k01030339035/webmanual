@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Shinsegae DevOps RoadMap</title>
+  </head>
+  <body>
+    
+
+    <center>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">AWS CLI</h1>
+    <p class="lead"> AWS CLI 학습 </p>
+  </div>
+</div>
+
+<a href="../index.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">HOME</a>
+
+    <!-- <a href="../index.html" class="card-link"> HOME </a>
+<button type="button" class="btn btn-primary" a href="../index.html"> HOME </button> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+    </center>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          1. S3 예제: 전체 버킷 확인
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+        <pre>
+<code class="language-less">
+import boto3
+s3 = boto3.resource('s3')
+for bucket in s3.buckets.all():
+        print(bucket.name)</code>
+</pre>
+<button class="copy-button">Copy</button>
+</pre>
+      
+      
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          2. S3 예제: 전체 버킷 확인 (AccessKey, Secret Key 지정)
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+<pre>
+
+        <code class="language-less">
+import boto3
+s3_res = boto3.resource('s3', aws_access_key_id="AKIAT6EOQZ6GJIIA6GMG", aws_secret_access_key="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", region_name='ap-northeast-2')
+for bucket in s3_res.buckets.all():
+        print(bucket.name)
+</code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+3. 버켓 GLACIER 찾기 (STANDARD, INTELLIGENT_TIERING, STANDARD_IA, ONEZONE_IA,GLACIER, DEEP_ARCHIVE, REDUCED_REDUNDANCY ) storage class
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+     <pre>
+        <code class="language-less">
+bucket_name = 'sungsuwebdata'
+import boto3
+s3_res = boto3.resource('s3')
+each_bucket = s3_res.Bucket(bucket_name)
+version = each_bucket.objects
+for ver in version.all():
+    if (ver.storage_class) in 'GLACIER':
+        pass
+    else:
+        print(ver.key)
+        print('##############')
+        print(ver.storage_class)
+</code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+     
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          4. S3 스토리지 타입 변경
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+bucket_name = 'sungsuwebdata'
+import boto3
+each_bucket = s3_res.Bucket(bucket_name)
+version = each_bucket.objects
+for ver in version.all():
+    print(ver.bucket_name)
+    print(ver.key)
+    print(ver.storage_class)
+    object = s3_res.Object(bucket_name, ver.key)
+    try:
+        object.copy_from(CopySource = { 'Bucket': bucket_name, 'Key': ver.key}, StorageClass='STANDARD')
+    except Exception as e:
+        print(e)
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+     
+      </div>
+    </div>
+  </div>
+  
+<div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          5. S3 STANDARD 스토리지 타입을 찾아서 전체 삭제 - 현대카드 적용
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+bucket_name = 'sungsuwebdata'
+import boto3
+s3_res = boto3.resource('s3')
+each_bucket = s3_res.Bucket(bucket_name)
+version = each_bucket.objects
+for ver in version.all():
+    if (ver.storage_class) in 'STANDARD':
+        print(ver.key)
+        print(ver.version_id)
+        print(ver.storage_class)
+        '''
+        delete_std = ver.delete()
+        print(delete_std)
+        '''
+    else:
+        pass
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          6. S3 버전 파일 삭제
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+import boto3
+
+bucket_name = 'sungsuwebdata'
+s3 = boto3.resource('s3')
+bucket = s3.Bucket(bucket_name)
+version = bucket.object_versions
+for ver in version.all():
+    if str(ver.storage_class) in 'STANDARD':
+        print(ver.key)
+        print(ver.version_id)
+        print(ver.storage_class)
+        delete_std = ver.delete()
+        print(delete_std)
+    else:
+        pass
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          7. S3 GLACIER 전체 파일 삭제 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+import boto3
+
+bucket_name = 'sungsuwebdata'
+s3 = boto3.resource('s3')
+bucket = s3.Bucket(bucket_name)
+version = bucket.object_versions
+for ver in version.all():
+    if str(ver.storage_class) in 'GLACIER':
+        print(ver.key)
+        print(ver.version_id)
+        print(ver.storage_class)
+        delete_std = ver.delete()
+        print(delete_std)
+    else:
+        pass
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          8. S3 전체 마커 파일 삭제
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+import boto3
+import botocore
+bucket_name = 'sungsubucket'
+s3 = boto3.resource('s3')
+bucket = s3.Bucket(bucket_name)
+version = bucket.object_versions
+for ver in version.all():
+    if str(ver.size) in 'None':
+        delete_file = ver.delete()
+        print(delete_file)
+    else:
+        pass
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingNine">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          9. S3 1000 이상 파일 찾기
+        </button>
+      </h5>
+    </div>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+import boto3
+
+bucket_name = 'sungsuwebdata'
+s3 = boto3.resource('s3')
+bucket = s3.Bucket(bucket_name)
+version = bucket.object_versions
+find_size = 100000
+for ver in version.all():
+    try:
+        if ver.size > 1000:
+            print(ver.key)
+        else:
+            pass
+    except Exception as e:
+        pass
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingTen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+         10. S3 사이즈 자동 변환 
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+      <div class="card-body">
+
+
+                  <pre>
+        <code class="language-less">
+def humanbytes(B):
+    'Return the given bytes as a human friendly KB, MB, GB, or TB string'
+    B = float(B)
+    KiB = float(1024)
+    MiB = float(KiB ** 2)  # 1,048,576
+    GiB = float(KiB ** 3)  # 1,073,741,824
+    TiB = float(KiB ** 4)  # 1,099,511,627,776
+
+    if B < KiB:
+        return '{0} {1}'.format(B, 'Bytes' if 0 == B > 1 else 'Byte')
+    elif KiB <= B < MiB:
+        return '{0:.2f} KiB'.format(B / KiB)
+    elif MiB <= B < GiB:
+        return '{0:.2f} MiB'.format(B / MiB)
+    elif GiB <= B < TiB:
+        return '{0:.2f} GiB'.format(B / GiB)
+    elif TiB <= B:
+        return '{0:.2f} TiB'.format(B / TiB)
+    print('{0} == {1}'.format(t, humanbytes(t)))
+
+humanbytes(1100000000)
+humanbytes(11)
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+</div>
+
+
+<center>
+
+<div class="card border-primary mb-3" style="max-width: 22rem;">
+ <div class="card border-dark mb-3" style="max-width: 22rem;">
+  <div class="card-header"> 추가 학습 자료 </div>
+  <div class="card-body text-dark">
+    <h5 class="card-title"> AWS Python 추가 학습 자료 </h5>
+    <p class="card-text"> AWS 제공하는 Python학습 자료를 확인할 수 있습니다.</p>
+  </div>
+</div>
+
+
+<a class="btn btn-primary" href="https://aws.amazon.com/sdk-for-python/" role="button">AWS Python</a>
+<br>
+<br>
+</center>
+<a class="btn btn-success" href="../index.html" role="button">HOME </a>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="webfile/prism.css"></script>
+    <script src="webfile/prism.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script>
+
+      var copyCode = new Clipboard('.copy-button', {
+       target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+
+    copyCode.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+      var copyCode2 = new Clipboard('.copy-button2', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+    copyCode2.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+    </script>
+
+
+  </body>
+</html>

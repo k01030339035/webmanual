@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>shinsegae DevOps RoadMap</title>
+  </head>
+  <body>
+    
+
+    <center>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">GCP SDK</h1>
+    <p class="lead"> GCP SDK  </p>
+  </div>
+</div>
+
+
+    <a href="../index.html" class="card-link"> HOME </a>
+<button type="button" class="btn btn-primary"> Primary </button>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+    </center>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          GCP SDK
+                  </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+        <pre>
+<code class="language-less">
+  https://cloud.google.com/sdk
+  </code>
+</pre>
+<button class="copy-button">Copy</button>
+</pre>
+      
+      
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          S3 예제: 전체 버킷 확인 (AccessKey, Secret Key 지정)
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+<pre>
+
+        <code class="language-less">
+import boto3
+s3_res = boto3.resource('s3', aws_access_key_id="AKIAT6EOQZ6GJIIA6GMG", aws_secret_access_key="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", region_name='ap-northeast-2')
+for bucket in s3_res.buckets.all():
+        print(bucket.name)
+</code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          버켓 GLACIER 찾기 (STANDARD, INTELLIGENT_TIERING, STANDARD_IA, ONEZONE_IA,GLACIER, DEEP_ARCHIVE, REDUCED_REDUNDANCY ) storage class
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+
+     <pre>
+        <code class="language-less">
+bucket_name = 'sungsuwebdata'
+import boto3
+s3_res = boto3.resource('s3')
+each_bucket = s3_res.Bucket(bucket_name)
+version = each_bucket.objects
+for ver in version.all():
+    if (ver.storage_class) in 'GLACIER':
+        pass
+    else:
+        print(ver.key)
+        print('##############')
+        print(ver.storage_class)
+</code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+     
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Collapsible Group Item #4
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+     
+      </div>
+    </div>
+  </div>
+  
+<div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Collapsible Group Item #5
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Collapsible Group Item #6
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Collapsible Group Item #7
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          Collapsible Group Item #8
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingNine">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          Collapsible Group Item #9
+        </button>
+      </h5>
+    </div>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingTen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+          Collapsible Group Item #10
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+      <div class="card-body">
+
+
+                  <pre>
+        <code class="language-less">
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+EC2 관리
+    <pre style="background-color:lightsteelblue;">
+import boto3
+session = boto3.session.Session(profile_name="client430")
+ec2_cli = boto3.client('ec2')
+for region in ec2_cli.describe_regions()["Regions"]:
+    ec2_cli = session.client(service_name="ec2", region_name=region["RegionName"])
+    print(region["RegionName"])
+    try:
+        response = ec2_cli.describe_instances()
+        for reservation in response["Reservations"]:
+            for instance in reservation["Instances"]:
+                if 'terminated' == str(instance.get('State').get('Name')) or 'pending' == str(instance.get('State').get('Name')):
+                    print("############" + instance.get('State').get('Name'))
+                else:
+                    try:
+                        for tags in instance['Tags']:
+                            if tags["Key"] == 'Name':
+                                vTag = tags["Value"]
+                                print(vTag)
+                                print(instance.get('PrivateIpAddress'))
+                                print(instance.get('InstanceId'))
+                                print("#####################################")
+                            else:
+                                print("No Tag!!!")
+                                print(instance.get('PrivateIpAddress'))
+                                print(instance.get('InstanceId'))
+                                print("************************************")
+                    except Exception as e:
+                        print(e)
+     except Exception as e1:
+        print(e1)
+    </pre>
+<code>
+</code>
+
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+</div>
+
+<center>
+<a class="btn btn-primary" href="https://aws.amazon.com/sdk-for-python/" role="button">AWS Python</a>
+
+<br>
+For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+
+
+
+<br>
+<a class="btn btn-success" href="../index.html" role="button">HOME </a>
+</center>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="webfile/prism.css"></script>
+    <script src="webfile/prism.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script>
+
+      var copyCode = new Clipboard('.copy-button', {
+       target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+
+    copyCode.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+      var copyCode2 = new Clipboard('.copy-button2', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+    copyCode2.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+    </script>
+
+
+  </body>
+</html>

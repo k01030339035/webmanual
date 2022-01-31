@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>shinsegae DevOps RoadMap</title>
+  </head>
+  <body>    
+
+    <center>
+      <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">AWS Terraform</h1>
+    <p class="lead"> AWS Terraform 학습 </p>
+  </div>
+</div>
+    <a href="../index.html" class="card-link"> HOME </a>
+<button type="button" class="btn btn-primary"> Primary </button>
+</center>
+<pre>
+Ubuntu 설치 
+wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip
+unzip terraform_0.13.5_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+$ terraform version
+Terraform v0.13.5
+</pre>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<center>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+    </center>
+EC2 관리
+    <pre style="background-color:lightsteelblue;">
+import boto3
+session = boto3.session.Session(profile_name="client430")
+ec2_cli = boto3.client('ec2')
+for region in ec2_cli.describe_regions()["Regions"]:
+    ec2_cli = session.client(service_name="ec2", region_name=region["RegionName"])
+    print(region["RegionName"])
+    try:
+        response = ec2_cli.describe_instances()
+        for reservation in response["Reservations"]:
+            for instance in reservation["Instances"]:
+                if 'terminated' == str(instance.get('State').get('Name')) or 'pending' == str(instance.get('State').get('Name')):
+                    print("############" + instance.get('State').get('Name'))
+                else:
+                    try:
+                        for tags in instance['Tags']:
+                            if tags["Key"] == 'Name':
+                                vTag = tags["Value"]
+                                print(vTag)
+                                print(instance.get('PrivateIpAddress'))
+                                print(instance.get('InstanceId'))
+                                print("#####################################")
+                            else:
+                                print("No Tag!!!")
+                                print(instance.get('PrivateIpAddress'))
+                                print(instance.get('InstanceId'))
+                                print("************************************")
+                    except Exception as e:
+                        print(e)
+     except Exception as e1:
+        print(e1)
+    </pre>
+<code>
+</code>
+
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+</div>
+
+<center>
+<a class="btn btn-primary" href="https://aws.amazon.com/sdk-for-python/" role="button">AWS Python</a>
+
+<br>
+For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+
+
+
+<br>
+<a class="btn btn-success" href="../index.html" role="button">HOME </a>
+</center>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

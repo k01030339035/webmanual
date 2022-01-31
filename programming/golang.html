@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>shinsegae DevOps RoadMap</title>
+  </head>
+  <body>
+    
+
+    <center>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">AWS Go Lang</h1>
+    <p class="lead"> AWS Go Language 언어 학습 </p>
+  </div>
+</div>
+
+<a href="../index.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">HOME</a>
+
+    <!-- <a href="../index.html" class="card-link"> HOME </a>
+<button type="button" class="btn btn-primary" a href="../index.html"> HOME </button> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-8">
+    </center>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          1. shinsegae 문자 출력 스크립트입니다.
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+        <pre>
+<code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Bespin Global Cloud Service.")
+
+}
+
+      </code>
+</pre>
+<button class="copy-button">Copy</button>
+</pre>
+      
+      
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          2. 문자열 처리 예제 - 주석 라인 별로 실행 할 수 있습니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+<pre>
+
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	// MAIN TYPES
+	// string
+	// bool
+	// int
+	// int  int8  int16  int32  int64
+	// uint uint8 uint16 uint32 uint64 uintptr
+	// byte - alias for uint8
+	// rune - alias for int32
+	// float32 float64
+	// complex64 complex128
+	// Using var
+	// any - any
+
+	// var name = "sungsu"
+	// fmt.Println(name)
+
+	// var name = "sungsu"
+	// var age int32 = 37
+	// const isCool = true
+	// var size float32 = 2.3
+	// fmt.Println(name, age, isCool, size)
+
+	// Shorthand
+	// name := "sungsu"
+	// email := "stwo.kim@gmail.com"
+	// fmt.Println(name, email)
+
+	name, email := "sungsu", "stwo.kim@gmail.com"
+	var age int32 = 40
+	var size float32 = 2.3
+	fmt.Println(name, age, email)
+	fmt.Printf("%T\n", size)
+}
+
+// %t  bool
+// %b 2진수
+// %c 문자
+// %d 10진수
+// %o 8진수
+// %x 16진수, a~f
+// %X 16진수, A~F
+// %f  고정소수점
+// %F 고정소수점
+// %e 지수 표현, e
+// %E 지수 표현, E
+// %g 간단한 실수 표현
+// %G 간단한 실수 표현
+// %s 문자열
+// %p 포인터
+// %U 유니코드
+// %T 타입
+// %v 모든 형식
+// %#v 형식을 구분할 수 있게
+
+</code>
+</pre>
+
+
+
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+3. 문자열 변환 스크립트입니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+     <pre>
+        <code class="language-less">
+package main
+
+import (
+	"fmt"
+
+	"github.com/k30339035/awsgolang/AWS/Utils"
+)
+
+func main() {
+	//reverse a sentense.
+	fmt.Println(Utils.Reverse("HTAPOGgnitteS/ikiw/og/gnalog/moc.buhtig//:sptth tlusnoc dluohs sresu swodniW"))
+}
+</code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+     
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          4. 기초 함수 스크립트입니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+// Sum A + B
+//go run .\04functions\main.go
+
+func main() {
+	fmt.Println(getSum(3, 4))
+
+}
+
+func getSum(num1, num2 int) int {
+
+	return num1 + num2
+
+}
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+     
+      </div>
+    </div>
+  </div>
+  
+<div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          5. 배열처리 스크립트입니다
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	// Arrays
+	// var regionArr [2]string
+	// // Assign values
+	// regionArr[0] = "ap-northeast-2"
+	// regionArr[1] = "ap-northeast-1"
+	// fmt.Println(regionArr)
+
+	// Decalre and assign
+	// regionArr := [2]string{"ap-northeast-2", "ap-northeast-1"}
+	// fmt.Println(regionArr)
+
+	// regionArr := [2]string{"ap-northeast-2", "ap-northeast-1"}
+	// fmt.Println(regionArr)
+	// fmt.Println(regionArr[1])
+
+	regionSlice := []string{"ap-northeast-2", "ap-northeast-1", "us-east-1", "us-east-1"}
+	fmt.Println(len(regionSlice))
+	fmt.Println(regionSlice[1:4])
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          6. 조건 처리 스크립트입니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+
+          <pre>
+        <code class="language-less">
+espin is Engineer")
+	} else if bespin == "Devops" {
+		fmt.Println("Bespin is Devops")
+	} else {
+		fmt.Println("Bespin is NOT Engineer or DevOps")
+	}
+
+	// Switch
+	switch bespin {
+	case "Engineer":
+		fmt.Println("Bespin is Engineer")
+	case "Devops":
+		fmt.Println("Bespin is Devops")
+	default:
+		fmt.Println("Bespin is NOT Engineer or Devops")
+	}
+}
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          7. Loop 스크립트입니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	// Long method
+	i := 1
+	for i <= 8 {
+		fmt.Println(i)
+		// i = i + 1
+		i++
+	}
+
+	// Short method. Think about Python treat string.
+	for i := 1; i <= 7; i++ {
+		fmt.Printf("Number %d\n", i)
+	}
+
+	// Find 3 and 5
+	for i := 1; i <= 90; i++ {
+		if i%15 == 0 {
+			fmt.Println("3 and 5")
+		} else if i%3 == 0 {
+			fmt.Println("3 Value")
+		} else if i%5 == 0 {
+			fmt.Println("5 Value")
+		} else {
+			fmt.Println(i)
+		}
+	}
+}
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingEight">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          8. 맵함수 스크립트입니다.
+
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	// // Define map
+	// emails := make(map[string]string)
+	// //  Assign kv
+	// emails["sungsu"] = "stwo.kim@gmail.com"
+	// emails["bespin"] = "sungsu.kim@shinsegae.com"
+	// emails["naver"] = "createman@naver.com"
+	// // Decalre map and add kv
+	// fmt.Println(emails)
+
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// emails["demo"] = "demo@gmail.com"
+	// fmt.Println(emails)
+
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// fmt.Println(len(emails))
+
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// emails["demo"] = "demo@gmail.com"
+	// fmt.Println(len(emails))
+
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// fmt.Println(emails["sungsu"])
+
+	// // Delete from map
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// delete(emails, "sungsu")
+	// fmt.Println(emails)
+	// fmt.Println(emails["bespin"])
+
+	// kvs := map[string]string{"a": "apple", "b": "banana"}
+	// for k, v := range kvs {
+	// 	fmt.Printf("%s -> %s\n", k, v)
+	// }
+
+	for i, c := range "go" {
+		fmt.Println(i, c)
+	}
+}
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+    <div class="card">
+    <div class="card-header" id="headingNine">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          9. 범위 출력 스크립트입니다. - 주석 라인 별로 실행 할 수 있습니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+      <div class="card-body">
+
+
+          <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	// ids := []int{22, 26, 74, 63, 31, 51, 2}
+	// // Loop through ids. num incremented by 1.
+	// for i, id := range ids {
+	// 	fmt.Printf("%d - ID: %d\n", i, id)
+	// }
+
+	// Not using index
+	// ids := []int{22, 26, 74, 63, 31, 51, 2}
+	// for _, id := range ids {
+	// 	fmt.Printf("ID: %d\n", id)
+	// }
+
+	// All Add ids together
+	// ids := []int{22, 26, 74, 63, 31, 51, 2}
+	// sum := 0
+	// for _, id := range ids {
+	// 	sum += id
+	// }
+	// fmt.Println("Sum", sum)
+
+	// // Range with map
+	// emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	// for k, v := range emails {
+	// 	fmt.Printf("%s: %s\n", k, v)
+	// }
+
+	emails := map[string]string{"sungsu": "stwo.kim@gmail.com", "bespin": "sungsu.kim@shinsegae.com"}
+	for k := range emails {
+		fmt.Println("Name: " + k)
+	}
+}
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+      <div class="card">
+    <div class="card-header" id="headingTen">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+         10. 포인터 스크립트입니다. - 주석 라인 별로 실행 할 수 있습니다.
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+      <div class="card-body">
+
+
+                  <pre>
+        <code class="language-less">
+package main
+
+import "fmt"
+
+func main() {
+	a := 5
+	b := &a
+	fmt.Println(a, b)
+	fmt.Printf("%T\n", b)
+
+	//  Use * to read val from address
+
+	fmt.Println(*b)
+	fmt.Println(*&a)
+
+	// Change val with pointer
+
+	*b = 10
+	fmt.Println(a)
+}
+
+
+        </code>
+</pre>
+<button class="copy-button2">Copy</button>
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+</div>
+
+
+<center>
+
+<div class="card border-primary mb-3" style="max-width: 22rem;">
+ <div class="card border-dark mb-3" style="max-width: 22rem;">
+  <div class="card-header"> 추가 학습 자료 </div>
+  <div class="card-body text-dark">
+    <h5 class="card-title"> AWS Go 추가 학습 자료 </h5>
+    <p class="card-text"> AWS 제공하는 Go lang 학습 자료를 확인할 수 있습니다.</p>
+  </div>
+</div>
+
+
+<a class="btn btn-primary" href="https://aws.amazon.com/ko/sdk-for-go/" role="button">AWS Go</a>
+<br>
+<br>
+</center>
+<a class="btn btn-success" href="../index.html" role="button">HOME </a>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="webfile/prism.css"></script>
+    <script src="webfile/prism.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script>
+
+      var copyCode = new Clipboard('.copy-button', {
+       target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+
+    copyCode.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+      var copyCode2 = new Clipboard('.copy-button2', {
+    target: function(trigger) {
+        return trigger.previousElementSibling;
+        }
+    });
+
+    copyCode2.on('success', function(event) {
+        event.clearSelection();
+        event.trigger.textContent = 'Copied';
+        window.setTimeout(function() {
+            event.trigger.textContent = 'Copy';
+        }, 2000);
+    });
+
+
+    </script>
+
+
+  </body>
+</html>
